@@ -1,0 +1,20 @@
+﻿node : MongoDB connection 
+error: connect 
+ECONNREFUSED ::1:27017, 
+connect ECONNREFUSED 
+127.0.0.1:27017
+At line:1 char:1
++ node index.js > 
+server_output.txt 2>&1; 
+type server_output.txt
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~
+    + CategoryInfo        
+      : NotSpecified: (M  
+  ongoDB connect...127.   
+ 0.0.1:27017:String) [    
+], RemoteException
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 

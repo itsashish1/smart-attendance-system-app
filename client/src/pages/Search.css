@@ -1,0 +1,251 @@
+/* Search.css - Custom styling for Google Custom Search Engine */
+
+/* Container resets */
+.search-page .gsc-control-cse {
+  padding: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* Search Box Area */
+.search-page .gsc-search-box {
+  margin-bottom: 2rem !important;
+}
+
+/* Input Wrapper */
+.search-page .gsc-input-box {
+  border: 2px solid var(--border) !important;
+  border-radius: var(--radius-full) !important;
+  padding: 0.25rem 1rem !important;
+  background: var(--surface) !important;
+  transition: var(--transition) !important;
+  box-shadow: none !important;
+  height: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.search-page .gsc-input-box:focus-within {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(26, 53, 91, 0.1) !important;
+}
+
+/* Input Field */
+.search-page input.gsc-input {
+  font-family: inherit !important;
+  font-size: 1rem !important;
+  color: var(--text) !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* Search Button */
+.search-page .gsc-search-button-v2 {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: var(--radius-full) !important;
+  margin-left: 1rem !important;
+  transition: var(--transition) !important;
+  cursor: pointer !important;
+}
+
+.search-page .gsc-search-button-v2:hover {
+  background-color: var(--primary-light) !important;
+  border-color: var(--primary-light) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(26,53,91,0.25) !important;
+}
+
+.search-page .gsc-search-button-v2 svg {
+  fill: #fff !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+/* Results Header */
+.search-page .gsc-result-info {
+  color: var(--text-muted) !important;
+  font-size: 0.9rem !important;
+  padding: 1rem 0 !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+/* Results Formatting */
+.search-page .gsc-webResult.gsc-result {
+  padding: 1.5rem 0 !important;
+  border-bottom: 1px solid var(--border) !important;
+  background: transparent !important;
+}
+
+.search-page .gs-title {
+  color: var(--primary) !important;
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: var(--transition) !important;
+}
+
+.search-page .gs-title:hover {
+  color: var(--primary-light) !important;
+  text-decoration: underline !important;
+}
+
+.search-page .gs-snippet {
+  color: var(--text) !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  margin-top: 0.5rem !important;
+}
+
+.search-page .gs-visibleUrl {
+  color: var(--success) !important;
+  font-size: 0.85rem !important;
+  margin-top: 0.25rem !important;
+}
+
+/* Pagination */
+.search-page .gsc-cursor-page {
+  color: var(--text-muted) !important;
+  font-weight: 500 !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: var(--radius) !important;
+  background: #f1f5f9 !important;
+  margin-right: 0.5rem !important;
+  cursor: pointer !important;
+}
+
+.search-page .gsc-cursor-current-page {
+  background: var(--primary) !important;
+  color: #fff !important;
+}
+
+/* Remove branding noise */
+.search-page .gcsc-branding { display: none !important; }
+
+.search-page div.gsc-clear-button {
+  width: 18px !important; height: 18px !important; opacity: 0.5 !important;
+}
+.search-page div.gsc-clear-button:hover { opacity: 1 !important; }
+
+/* ------------------------------------- */
+/* RESTRUCTURE LAYOUT & UI UX EXTENSIONS */
+/* ------------------------------------- */
+
+.search-page {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Search Hero Section */
+.search-hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: white;
+  padding: 5rem 2rem;
+  border-radius: var(--radius-lg);
+  margin-bottom: 2.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+  animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.search-hero::before {
+  content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.search-hero-content { position: relative; z-index: 2; }
+.search-hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -1px; }
+.search-hero p { font-size: 1.25rem; opacity: 0.9; max-width: 650px; margin: 0 auto; line-height: 1.5; }
+
+
+/* Main Grid Layout */
+.search-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.search-container {
+  background: var(--surface);
+  padding: 3rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  min-height: 60vh;
+  transition: var(--transition);
+}
+
+.search-container:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+
+/* Sidebar Info Cards */
+.search-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.search-tips-card {
+  background: var(--surface);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+.search-tips-card h3 {
+  color: var(--primary);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-tips-card ul {
+  list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem;
+}
+
+.search-tips-card li {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.search-tips-card li strong { color: var(--text); }
+
+.popular-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.tag {
+  background: #f1f5f9;
+  color: var(--text);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: var(--transition);
+  cursor: pointer;
+  border: 1px solid var(--border);
+}
+
+.tag:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+  .search-layout { grid-template-columns: 1fr; }
+  .search-hero h1 { font-size: 2rem; }
+  .search-container { padding: 1.5rem; }
+}
