@@ -1,169 +1,162 @@
-<div align="center">
+# Smart Attendance Management System
 
-#  Unified College Interaction System
+A modern, responsive attendance management system for educational institutions built with **React**, **Node.js**, **Express**, and **MongoDB**.
 
-**A centralized web platform bridging the gap between students, clubs, faculty, and administration.**
+## Features
 
-[![Academic Project](https://img.shields.io/badge/Purpose-Academic-blue?style=flat-square)](.)
-[![Stack](https://img.shields.io/badge/Stack-MERN-green?style=flat-square)](.)
-[![Team](https://img.shields.io/badge/Team-Shadow-purple?style=flat-square)](.)
-[![License](https://img.shields.io/badge/License-Academic%20Use%20Only-orange?style=flat-square)](.)
+✅ **Dashboard with Class Selection**
+- 4-column layout showing all classes organized by branch and section
+- 7 sections per class (A-G) for large batches
+- Real-time timetable integration
+- Visual indicators for active/inactive classes
 
-</div>
+✅ **Time-Based Attendance Marking**
+- Attendance can only be marked during scheduled class hours
+- Automatic window closure after class time
+- Real-time status updates showing current time and class timing
+- Prevents unauthorized attendance marking
 
----
+✅ **Student Management**
+- 336+ students seeded across all branches/semesters/sections
+- Organized by sections within each class
+- Quick marking options (Present, Late, Absent)
+- Bulk actions for marking entire classes
 
-## Overview
+✅ **Authentication**
+- User login/registration with JWT
+- Role-based access (Student, Faculty, Admin)
+- Secure token-based API
 
-The **Unified College Interaction System** is a full-stack web platform designed to centralize all college-related information and interactions into a single, organized digital hub. It aims to eliminate the fragmentation caused by scattered communication channels — WhatsApp groups, physical notice boards, and informal messages — and replace them with a structured, reliable, and accessible solution for students, faculty, and administrators.
-
----
-
-## Problem Statement
-
-In most colleges, critical information is spread across multiple unofficial channels, leading to:
-
-- Missed event deadlines and late registrations
-- Difficulty finding verified faculty contact details
-- No structured platform for academic discussions
-- Inefficient, informal announcement methods
-- Poor visibility into club activities and college happenings
-
-There is a strong need for a **unified system** that organizes and simplifies these interactions in one place.
-
----
-
-## Solution
-
-The **Unified College Interaction System** provides:
-
-- A centralized hub for clubs, events, announcements, and faculty details
-- Digital event management with online registration and participant tracking
-- A structured discussion forum for academic and general queries
-- Role-based access for students, club admins, faculty, and system admins
-- A scalable and practical platform suited for real-world college deployment
-
----
-
-## Key Features
-
-| Module | Description |
-|---|---|
-| **Clubs & Societies** | Browse all college clubs, view descriptions, coordinators, and activities |
-| **Event Management** | Create, publish, and manage events with one-click student registration |
-| **Discussion Forum** | Structured Q&A-based academic and general discussions |
-| **Faculty Directory** | Searchable database with verified contact details and department info |
-| **Announcements** | Centralized digital notice board for official updates and deadlines |
-| **Global Search** | Search across clubs, events, faculty, and forum posts in one place |
-| **Support Tickets** | Users can raise support tickets; admins can manage and reply |
-
----
-
-## User Roles
-
-### Student
-- Browse clubs, events, and announcements
-- Register for events online
-- Participate in discussion forums
-- Access verified faculty contact information
-- Raise support tickets
-
-### Club Admin / Authorized User
-- Create and manage club events
-- Post club-related updates and announcements
-
-### Faculty / System Admin
-- Publish official announcements
-- Manage faculty directory entries
-- Handle support tickets and platform moderation
-
----
-
-## System Architecture
-
-```
-┌─────────────────────────────────────────────────┐
-│                   Frontend (React)               │
-│      User Interface · Role-based Views           │
-│      Event Registration · Forum · Dashboard      │
-└───────────────────┬─────────────────────────────┘
-                    │ REST API (HTTP/JSON)
-┌───────────────────▼─────────────────────────────┐
-│              Backend (Node.js + Express)          │
-│   Auth · Role-based Access · Business Logic       │
-│   Event Handling · Forum · Support Tickets        │
-└───────────────────┬─────────────────────────────┘
-                    │ Mongoose ODM
-┌───────────────────▼─────────────────────────────┐
-│                  Database (MongoDB)               │
-│  Users · Clubs · Events · Posts · Registrations  │
-└─────────────────────────────────────────────────┘
-```
-
----
+✅ **Professional UI**
+- Clean, modern design matching college system standards
+- Responsive layout (Desktop, Tablet, Mobile)
+- Real-time timetable status indicators
+- Intuitive student list with section grouping
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| **Frontend** | React.js, HTML5, CSS3, JavaScript |
-| **Backend** | Node.js, Express.js |
-| **Database** | MongoDB (Mongoose ODM) |
-| **Auth** | JWT (JSON Web Tokens) |
-| **Version Control** | Git & GitHub |
+**Frontend:**
+- React 18
+- React Router v6
+- Axios
+- Lucide React (Icons)
+- CSS3 with responsive design
 
----
+**Backend:**
+- Node.js
+- Express.js
+- MongoDB/Mongoose
+- JWT Authentication
+- Bcrypt (Password hashing)
 
-## Project Documents
+## Installation
 
-| Document | Link |
-|---|---|
-| Synopsis Report | [`docs/synopsis_report.pdf`](docs/synopsis_report.pdf) |
-| Presentation (PDF) | [`docs/presentation_ppt.pdf`](docs/presentation_ppt.pdf) |
-| Presentation (PPT) | [`docs/presentation.pptx`](docs/presentation.pptx) |
+### Prerequisites
+- Node.js (v14+)
+- MongoDB (local or cloud)
+- Git
 
----
+### Frontend Setup
 
-## Future Enhancements
+```bash
+cd smart-attendance-app-prod/frontend
+npm install
+npm start
+# Opens on http://localhost:3002
+```
 
-- [ ] Email & push notification alerts for events and announcements
-- [ ] Mobile application (Android / iOS)
-- [ ] Advanced analytics dashboard for event participation trends
-- [ ] Internship and placement opportunity board
-- [ ] AI-powered forum answer suggestions
-- [ ] Calendar integration for event reminders
+### Backend Setup
 
----
+```bash
+cd smart-attendance-app-prod/backend
+npm install
+node seed.js  # Seed database with mock students
+npm start
+# Server runs on http://localhost:5000
+```
 
-## Academic Relevance
+## Database Seeding
 
-This project is well-suited for academic evaluation as it:
+The system comes with 336 pre-seeded students:
+- **6 Branches:** CSE, IT, ECE, EEE, ME, CE
+- **2 Semesters:** 3, 4
+- **7 Sections:** A, B, C, D, E, F, G
+- **4 Students per section**
 
-- Solves a **real and recurring problem** in college environments
-- Demonstrates **full-stack development** skills (MERN stack)
-- Applies **system design principles** including role-based access control
-- Is **practical, scalable**, and straightforward to explain during viva
-- Promotes a **digital and collaborative campus culture**
+Run `node seed.js` in backend folder to populate the database.
 
----
+## Default Timetable
 
-## Project Team — Shadow
+| Subject | Start Time | End Time |
+|---------|-----------|----------|
+| Mathematics | 09:00 | 10:00 |
+| Physics | 10:00 | 11:00 |
+| Chemistry | 11:00 | 12:00 |
+| Programming | 14:00 | 15:00 |
+| Data Structures | 15:00 | 16:00 |
+| DBMS | 16:00 | 17:00 |
+| Networks | 09:00 | 10:00 |
+| General | 09:00 | 17:00 |
 
-| S.No | Name | Email ID | Role |
-|:----:|------|----------|------|
-| 1 | **Harshit Jaiswal** | 2301010397@krmu.edu.in | Leader |
-| 2 | Ashish Yadav | 2301010413@krmu.edu.in | Member |
-| 3 | Chetan Parmar | 2301010384@krmu.edu.in | Member |
-| 4 | Harsh Deo | 2301010386@krmu.edu.in | Member |
+## Project Structure
 
----
+```
+smart-attendance-app-prod/
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Dashboard.js      # Class selection with timetable
+│   │   │   ├── Attendance.js     # Attendance marking interface
+│   │   │   ├── Login.js          # Authentication
+│   │   │   ├── Navbar.js         # Top navigation
+│   │   │   └── ...
+│   │   ├── App.js
+│   │   ├── config.js             # API configuration
+│   │   └── index.css             # Global styles
+│   └── package.json
+├── backend/
+│   ├── models/
+│   │   ├── Student.js
+│   │   ├── User.js
+│   │   ├── Attendance.js
+│   │   └── ...
+│   ├── routes/
+│   │   ├── students.js
+│   │   ├── attendance.js
+│   │   ├── auth.js
+│   │   └── ...
+│   ├── controllers/
+│   ├── middleware/
+│   ├── seed.js
+│   ├── server.js
+│   └── package.json
+└── README.md
+```
+
+## How to Use
+
+1. **Register/Login**
+   - Create an account or login with existing credentials
+
+2. **Dashboard**
+   - Select date and view available classes
+   - Only classes within current time are clickable
+   - Green "Active Now" badge shows class timing
+
+3. **Mark Attendance**
+   - Click on a class to open the attendance page
+   - Select or deselect students as Present/Late/Absent
+   - All students in your section are visible by default
+   - Use "Mark All Present" or "Mark All Absent" buttons for bulk operations
+
+4. **Save**
+   - Click "Save Attendance" button to submit
+   - System confirms successful submission
 
 ## License
 
-This project is developed solely for **academic purposes**. All rights reserved by Team Shadow, KRMU.
+MIT License - feel free to use this project for personal and educational purposes.
 
 ---
 
-<div align="center">
-Made with love by <strong>Team Shadow</strong> · K.R. Mangalam University
-</div>
+**Built with ❤️ for educational institutions**
