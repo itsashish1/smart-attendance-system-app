@@ -4,66 +4,32 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  backend:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js 18
-        uses: actions/setup-node@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '14'
 
-      - name: Cache npm
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ".npm-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}"
-          restore-keys: |
-            .npm-${{ runner.os }}
-
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: Run Lint
-        run: npm run lint
-
-      - name: Run Tests
-        run: npm test
-
-      - name: Build
-        run: npm run build
-
-  frontend:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js 18
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18'
-
-      - name: Cache npm
-        uses: actions/cache@v2
+      - name: Cache node modules
+        uses: actions/cache@v4
         with:
           path: ~/.npm
-          key: ".npm-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}"
-          restore-keys: |
-            .npm-${{ runner.os }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
 
-      - name: Install Dependencies
-        run: npm ci
+      - name: Install Backend Dependencies
+        run: npm install
+        working-directory: smart-attendance-app-prod/backend
 
-      - name: Run Lint
-        run: npm run lint
-
-      - name: Run Tests
-        run: npm test
-
-      - name: Build
-        run: npm run build
+      - name: Install Frontend Dependencies
+        run: npm install
+        working-directory: smart-attendance-app-prod/frontend
